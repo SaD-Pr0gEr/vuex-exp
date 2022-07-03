@@ -1,5 +1,9 @@
 <template>
-    <base-container title="Vuex"></base-container>
+    <base-container title="Vuex">
+        <h3>{{ count }}</h3>
+        <button @click="add">Add 1</button>
+        <button @click="add10">Add 10</button>
+    </base-container>
 </template>
 
 <script>
@@ -9,6 +13,19 @@ export default {
     components: {
         BaseContainer,
     },
+    computed: {
+        count() {
+            return this.$store.state.counter
+        }
+    },
+    methods: {
+        add() {
+            this.$store.commit("addOne")
+        },
+        add10() {
+            this.$store.commit("add10", {value: 10})
+        }
+    }
 };
 </script>
 
