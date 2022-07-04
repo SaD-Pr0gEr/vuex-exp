@@ -1,44 +1,93 @@
 <template>
-    <base-container title="Vuex">
-        <h3>{{ count }}</h3>
-        <button @click="add">Add 1</button>
-        <button @click="add10">Add 10</button>
-    </base-container>
+  <NewsList/>
 </template>
 
 <script>
-import BaseContainer from './components/BaseContainer.vue';
+import NewsList from "@/components/news/NewsList";
 
 export default {
-    components: {
-        BaseContainer,
-    },
-    computed: {
-        count() {
-            return this.$store.state.counter
-        }
-    },
-    methods: {
-        add() {
-            this.$store.commit("addOne")
-        },
-        add10() {
-            this.$store.commit("add10", {value: 10})
-        }
-    }
+  components: {
+    NewsList
+  }
 };
 </script>
 
 <style>
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    font-family: sans-serif;
+  font-family: sans-serif;
 }
 
 body {
-    margin: 0;
+  margin: 0;
+  background-color: #7f9dff;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: #7f9dff;
+}
+
+.container {
+  margin: 50px 50px;
+  /*margin: 0 auto;*/
+}
+
+.news_container {
+  border-radius: 10px;
+  padding: 20px;
+  width: 70%;
+  background-color: white;
+  margin-bottom: 50px;
+}
+
+.news_title {
+  border-bottom: 3px solid black;
+  margin-top: 5px;
+}
+
+.preview_img_container img {
+  width: 100%;
+  height: 500px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.preview_img_container {
+  text-align: center;
+}
+
+.news_desc {
+  font-size: 20px;
+  word-break: break-all;
+}
+
+.meta_data {
+  font-size: 12px;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+
+.date {
+  display: block;
+}
+
+.description {
+  border-bottom: 3px solid black;
+}
+
+.bg-red a {
+  color: white;
+}
+
+.bg-red {
+  background-color: rgb(252, 72, 82);
 }
 </style>
