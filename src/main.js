@@ -1,25 +1,11 @@
 import { createApp } from 'vue';
-import { createStore } from "vuex";
 
 import App from './App.vue';
+import BaseButton from "@/components/UI/BaseButton"
+import store from "@/store/index";
 
 const app = createApp(App);
-
-const store = createStore({
-    state() {
-        return {
-          counter: 0
-        };
-    },
-    mutations: {
-        addOne(state) {
-            state.counter++;
-        },
-        add10(state, payload) {
-            state.counter += payload.value;
-        }
-    }
-})
+app.component("BaseButton", BaseButton)
 
 app.use(store);
 app.mount('#app');
